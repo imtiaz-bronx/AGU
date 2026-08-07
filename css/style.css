@@ -1,0 +1,370 @@
+/* ============================================================
+   AGU Poster Companion Site — shared styles
+   Lehman College / CUNY — Dept. of Earth, Environment & Geospatial Science
+   ============================================================ */
+
+:root {
+  --navy-deep: #000000;
+  --navy: #000000;
+  --navy-mid: #16265a;
+  --purple: #2a1a5e;
+  --accent: #000000;
+  --accent-soft: #ffd166;
+  --ice: #eef2ff;
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --card-bg: rgba(255, 255, 255, 0.96);
+  --text-dim: rgba(238, 242, 255, 0.72);
+  --radius-lg: 28px;
+  --radius-md: 20px;
+  --radius-sm: 14px;
+  --shadow-deep: 0 20px 50px rgba(0, 0, 0, 0.45);
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--ice);
+  background:
+    radial-gradient(circle at 15% 0%, rgba(255, 180, 0, 0.14), transparent 45%),
+    radial-gradient(circle at 90% 10%, rgba(122, 90, 248, 0.28), transparent 50%),
+    radial-gradient(circle at 50% 100%, rgba(35, 90, 190, 0.35), transparent 55%),
+    linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 45%, var(--purple) 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* subtle animated sheen across the whole page for that glossy "2.5" feel */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.05) 40%, transparent 60%);
+  background-size: 250% 250%;
+  animation: sheen 14s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes sheen {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+.wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 20px 18px 48px;
+}
+
+/* ---------- Header / masthead ---------- */
+
+.masthead {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: var(--radius-lg);
+  padding: 22px 20px;
+  box-shadow: var(--shadow-deep);
+  text-align: center;
+}
+
+.masthead .logo-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+
+.masthead .logo-row img {
+  height: 42px;
+  width: auto;
+  display: block;
+}
+
+.masthead .divider {
+  width: 1px;
+  height: 34px;
+  background: #cfd4e6;
+}
+
+.dept {
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+  color: var(--text-dim);
+  margin: 0 0 6px;
+}
+
+.authors {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ice);
+  margin: 0;
+}
+
+.authors sup {
+  color: var(--accent-soft);
+  font-weight: 700;
+}
+
+/* ---------- Title band ---------- */
+
+.title-band {
+  margin: 26px 0 22px;
+  text-align: center;
+}
+
+.title-band h1 {
+  font-size: 1.6rem;
+  line-height: 1.25;
+  margin: 0 0 8px;
+  font-weight: 800;
+  background: linear-gradient(90deg, #ffffff, var(--accent-soft));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.title-band p {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 0.95rem;
+}
+
+/* ---------- Logo grid ---------- */
+
+.logo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.logo-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 16px 20px;
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: #10143a;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.logo-card:active {
+  transform: scale(0.97);
+}
+
+@media (hover: hover) {
+  .logo-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  }
+  .logo-card:hover .logo-badge {
+    transform: scale(1.06);
+  }
+}
+
+.logo-badge {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: linear-gradient(160deg, #ffffff, #eef0f8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    inset 0 2px 4px rgba(255, 255, 255, 0.9),
+    inset 0 -6px 10px rgba(0, 0, 0, 0.08),
+    0 6px 14px rgba(0, 0, 0, 0.18);
+  transition: transform 0.25s ease;
+  overflow: hidden;
+}
+
+.logo-badge img {
+  width: 68%;
+  height: 68%;
+  object-fit: contain;
+}
+
+.logo-card .name {
+  font-weight: 700;
+  font-size: 0.98rem;
+  text-align: center;
+}
+
+.logo-card .desc {
+  font-size: 0.78rem;
+  color: #5a5f78;
+  text-align: center;
+  margin: -6px 0 2px;
+}
+
+.logo-card .go {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--navy-mid);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.logo-card .go svg {
+  width: 12px;
+  height: 12px;
+  transition: transform 0.2s ease;
+}
+
+.logo-card:hover .go svg {
+  transform: translateX(3px);
+}
+
+/* ---------- Hint / footer ---------- */
+
+.hint {
+  text-align: center;
+  margin-top: 26px;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.site-footer {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 18px;
+  border-top: 1px solid var(--glass-border);
+  color: rgba(238, 242, 255, 0.5);
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+/* ---------- Desktop optimization ---------- */
+
+@media (min-width: 640px) {
+  .wrap {
+    max-width: 840px;
+    padding: 48px 32px 64px;
+  }
+
+  .masthead {
+    padding: 32px 40px;
+  }
+
+  .masthead .logo-row img {
+    height: 54px;
+  }
+
+  .title-band h1 {
+    font-size: 2.1rem;
+  }
+
+  .title-band p {
+    font-size: 1.05rem;
+  }
+
+  .logo-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .logo-badge {
+    width: 96px;
+    height: 96px;
+  }
+}
+
+@media (min-width: 900px) {
+  .wrap {
+    max-width: 980px;
+  }
+}
+
+/* ---------- Stub / blog placeholder pages ---------- */
+
+.stub-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: var(--radius-lg);
+  padding: 40px 24px;
+  text-align: center;
+  box-shadow: var(--shadow-deep);
+  margin-top: 24px;
+}
+
+.stub-badge {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: linear-gradient(160deg, #ffffff, #eef0f8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+}
+
+.stub-badge img {
+  width: 68%;
+  height: 68%;
+  object-fit: contain;
+}
+
+.stub-card h1 {
+  font-size: 1.5rem;
+  margin: 0 0 10px;
+}
+
+.stub-card p {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 24px;
+  color: var(--accent-soft);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.back-link svg {
+  width: 14px;
+  height: 14px;
+  transform: rotate(180deg);
+}

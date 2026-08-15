@@ -1,1 +1,1 @@
-# AGU
+# Lehman College, CUNY

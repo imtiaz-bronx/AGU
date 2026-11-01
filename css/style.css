@@ -47,6 +47,15 @@ body::before {
   -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 70%);
 }
 
+#rain {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
 .wrap {
   max-width: 720px;
   margin: 0 auto;

@@ -3,69 +3,108 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
 <title>Data &amp; Codes Used in Our Research | Lehman College</title>
-<meta name="description" content="Sources and data pipelines behind our AGU research poster — NASA, NOAA, New York State, and GitHub.">
-<link rel="icon" href="/images/glass.png">
+<meta name="description" content="How we downloaded and processed the data behind our AGU poster: NASA GPM IMERG, NOAA MRMS, NASA rain gauges, New York State data, and our code on GitHub.">
+<link rel="icon" href="images/glass.png">
 <link rel="stylesheet" href="css/style.css">
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
+<!-- half-second splash -->
+<div id="loader" aria-hidden="true">
+  <svg viewBox="0 0 100 100">
+    <path class="drop" pathLength="120" d="M50 12C50 12 28 40 28 56a22 22 0 0 0 44 0C72 40 50 12 50 12z"/>
+    <ellipse class="ripple" cx="50" cy="86" rx="30" ry="8"/>
+  </svg>
+</div>
+
 <div class="wrap">
 
-  <header class="masthead">
+  <header class="masthead reveal">
     <div class="logo-row">
       <img src="images/Lehman_logo.png" alt="Lehman College, CUNY">
     </div>
     <p class="dept">Department of Earth, Environment and Geospatial Science</p>
   </header>
 
-  <section class="title-band">
+  <div class="hero-art" aria-hidden="true">
+    <svg viewBox="0 0 320 150">
+      <g transform="rotate(-12 160 62)">
+        <ellipse class="stroke orbit" cx="160" cy="62" rx="150" ry="50"/>
+        <circle class="sat" r="4">
+          <animateMotion dur="9s" repeatCount="indefinite" path="M10 62a150 50 0 1 0 300 0a150 50 0 1 0 -300 0"/>
+        </circle>
+      </g>
+      <g transform="translate(110 4) scale(4.2)">
+        <path class="stroke cloud" vector-effect="non-scaling-stroke" d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+      </g>
+      <line class="stroke ground" x1="70" y1="143" x2="250" y2="143"/>
+      <g>
+        <line class="rain" style="--d:0"    x1="132" y1="94" x2="129" y2="104"/>
+        <line class="rain" style="--d:0.45" x1="152" y1="94" x2="149" y2="104"/>
+        <line class="rain" style="--d:0.9"  x1="172" y1="94" x2="169" y2="104"/>
+        <line class="rain" style="--d:0.2"  x1="192" y1="94" x2="189" y2="104"/>
+        <line class="rain" style="--d:0.7"  x1="210" y1="94" x2="207" y2="104"/>
+        <ellipse class="splash" style="--d:0"    cx="120" cy="143" rx="9" ry="2.5"/>
+        <ellipse class="splash" style="--d:0.45" cx="140" cy="143" rx="9" ry="2.5"/>
+        <ellipse class="splash" style="--d:0.9"  cx="160" cy="143" rx="9" ry="2.5"/>
+        <ellipse class="splash" style="--d:0.2"  cx="180" cy="143" rx="9" ry="2.5"/>
+        <ellipse class="splash" style="--d:0.7"  cx="198" cy="143" rx="9" ry="2.5"/>
+      </g>
+    </svg>
+  </div>
+
+  <section class="title-band reveal">
     <h1>Data &amp; Codes Used in Our Research</h1>
-    <p>Tap a logo to see how we sourced and processed our data</p>
+    <p>Tap a logo to see how we downloaded and processed our data</p>
   </section>
 
   <nav class="logo-grid">
 
-    <a class="logo-card" href="nasa.html">
+    <a class="logo-card reveal" style="--i:0" href="nasa.html">
       <span class="logo-badge"><img src="images/nasa-logo-web-rgb.webp" alt="NASA logo"></span>
-      <span class="name">NASA</span>
-      <span class="desc">Satellite &amp; earth observation data</span>
+      <span class="name">NASA GPM IMERG</span>
+      <span class="desc">Satellite rainfall, step by step</span>
       <span class="go">Read more
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </span>
     </a>
 
-    <a class="logo-card" href="https://imtiazmahmud.com/blog/posts/aws-cli-noaa-mrms-rain-lab-python.html">
+    <a class="logo-card reveal" style="--i:1" href="noaa.html">
       <span class="logo-badge"><img src="images/noaa-emblem-rgb-2022.png" alt="NOAA emblem"></span>
-      <span class="name">NOAA</span>
-      <span class="desc">Atmospheric &amp; oceanic datasets</span>
+      <span class="name">NOAA MRMS</span>
+      <span class="desc">Radar rainfall from AWS</span>
       <span class="go">Read more
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </span>
     </a>
 
-    <a class="logo-card" href="nys.html">
+    <a class="logo-card reveal" style="--i:2" href="nys.html">
       <span class="logo-badge"><img src="images/new-york-state-seal.png" alt="Great Seal of the State of New York"></span>
       <span class="name">New York State</span>
-      <span class="desc">State GIS &amp; open data portals</span>
+      <span class="desc">Mesonet &amp; GIS data</span>
       <span class="go">Read more
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </span>
     </a>
 
-    <a class="logo-card" href="https://github.com/imtiaz-bronx/GPM_Codes">
+    <a class="logo-card reveal" style="--i:3" href="https://github.com/imtiaz-bronx/GPM_Codes" target="_blank" rel="noopener">
       <span class="logo-badge"><img src="images/github.png" alt="GitHub logo"></span>
       <span class="name">GitHub</span>
-      <span class="desc">Code, scripts &amp; workflows</span>
-      <span class="go">Read more
+      <span class="desc">Python scripts &amp; workflows</span>
+      <span class="go">Open repo
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </span>
     </a>
 
-    <a class="logo-card" href="nasa-gauge.html">
-      <span class="logo-badge"> <img src="/images/lehman_png.png" alt="Lehman College Logo"></span>
+    <a class="logo-card reveal" style="--i:4" href="nasa-gauge.html">
+      <span class="logo-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21a9 9 0 1 1 9-9"/><g class="gauge-needle"><path d="M12 12l5-4"/></g><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/><path d="M4 21h16"/></svg>
+      </span>
       <span class="name">NASA Reporting Gauge</span>
-      <span class="desc">Rain gauge monthly &amp; yearly data</span>
+      <span class="desc">Ground truth: monthly &amp; yearly</span>
       <span class="go">Read more
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </span>
@@ -73,13 +112,23 @@
 
   </nav>
 
+  <h2 class="section-title reveal">Our workflow in four steps</h2>
+  <p class="section-sub reveal">From raw downloads to R&sup2;</p>
+
+  <ol class="timeline">
+    <li class="reveal" data-n="1"><strong>Download</strong><span>GPM IMERG from NASA GES DISC and MRMS radar from NOAA on AWS.</span></li>
+    <li class="reveal" data-n="2"><strong>Prepare the gauge data</strong><span>Group raw gauge tips into 30-minute intervals.</span></li>
+    <li class="reveal" data-n="3"><strong>Extract &amp; match</strong><span>Python pulls the pixel over Lehman College; Excel joins it to the gauge by file name.</span></li>
+    <li class="reveal" data-n="4"><strong>Compare</strong><span>Satellite and radar versus gauge, scored with R&sup2;.</span></li>
+  </ol>
 
   <footer class="site-footer">
-    AGU Fall Meeting 2026 | Lehman College, CUNY<br>
-    Poster referance site last updated Aug 2026
+    AGU Fall Meeting 2026 &middot; Lehman College, CUNY<br>
+    Poster reference site
   </footer>
 
 </div>
 
+<script src="js/main.js"></script>
 </body>
 </html>

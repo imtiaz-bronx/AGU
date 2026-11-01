@@ -3,28 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>NOAA Data | Data &amp; Codes Used in Our Research</title>
-<link rel="icon" href="images/Lehman_logo.png">
+<meta name="theme-color" content="#000000">
+<title>NOAA MRMS | Data &amp; Codes Used in Our Research</title>
+<link rel="icon" href="images/glass.png">
 <link rel="stylesheet" href="css/style.css">
+<script>document.documentElement.classList.add('js');</script>
 </head>
-<body>
+<body class="guide">
+
+<div class="topbar">
+  <a class="back" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Home</a>
+  <img src="images/Lehman_logo.png" alt="Lehman College, CUNY">
+  <div class="progress"></div>
+</div>
+
 <div class="wrap">
-  <header class="masthead">
-    <div class="logo-row">
-      <img src="images/Lehman_logo.png" alt="Lehman College, CUNY">
-    </div>
-    <p class="dept">Department of Earth, Environment and Geospatial Science</p>
+
+  <header class="guide-hero reveal">
+    <span class="stub-badge"><img src="images/noaa-emblem-rgb-2022.png" alt="NOAA emblem"></span>
+    <h1>NOAA MRMS</h1>
+    <p>Radar rainfall, hosted publicly on Amazon AWS. No account needed.</p>
+    <div class="chips"><span class="chip">AWS S3</span><span class="chip">GRIB2</span></div>
   </header>
 
-  <section class="stub-card">
-    <span class="stub-badge"><img src="images/noaa-emblem-rgb-2022.png" alt="NOAA emblem"></span>
-    <h1>NOAA</h1>
-    <p>Details on the NOAA atmospheric and oceanic datasets we used, and how we downloaded and processed them, are coming soon.</p>
-    <a class="back-link" href="index.html">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      Back to home
-    </a>
+  <section class="step reveal">
+    <h2>Data source</h2>
+    <a class="btn" href="https://noaa-mrms-pds.s3.amazonaws.com/index.html#CONUS/PrecipRate_00.00/" target="_blank" rel="noopener"><span>NOAA MRMS on AWS (PrecipRate)<small>noaa-mrms-pds.s3.amazonaws.com</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
   </section>
+
+  <section class="step reveal">
+    <h2>Full guide</h2>
+    <a class="btn" href="https://imtiazmahmud.com/blog/posts/aws-cli-noaa-mrms-rain-lab-python.html" target="_blank" rel="noopener"><span>Download MRMS with AWS CLI + Python<small>imtiazmahmud.com</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+  </section>
+
+  <div class="pager"><a class="btn" href="index.html">Back to home</a></div>
 </div>
+
+<script src="js/main.js"></script>
 </body>
 </html>

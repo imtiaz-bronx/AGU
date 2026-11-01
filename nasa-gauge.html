@@ -3,42 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
 <title>NASA Reporting Gauge | Data &amp; Codes Used in Our Research</title>
-<link rel="icon" href="/images/glass.png">
+<link rel="icon" href="images/glass.png">
 <link rel="stylesheet" href="css/style.css">
+<script>document.documentElement.classList.add('js');</script>
 </head>
-<body>
-<div class="wrap">
-  <header class="masthead">
-    <div class="logo-row">
-      <img src="images/Lehman_logo.png" alt="Lehman College, CUNY">
-    </div>
-    <p class="dept">Department of Earth, Environment and Geospatial Science</p>
-  </header>
+<body class="guide">
 
-  <section class="stub-card">
+<div class="topbar">
+  <a class="back" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Home</a>
+  <img src="images/Lehman_logo.png" alt="Lehman College, CUNY">
+  <div class="progress"></div>
+</div>
+
+<div class="wrap">
+
+  <header class="guide-hero reveal">
     <span class="stub-badge">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21a9 9 0 1 1 9-9"/><path d="M12 12l5-4"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/><path d="M4 21h16"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21a9 9 0 1 1 9-9"/><g class="gauge-needle"><path d="M12 12l5-4"/></g><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/><path d="M4 21h16"/></svg>
     </span>
     <h1>NASA Reporting Gauge</h1>
-    <p>Rain gauge data reporting portals for the Lehman College station.</p>
+    <p>Ground rain gauge data for Lehman College.</p>
+    <div class="chips"><span class="chip">Monthly</span><span class="chip">Yearly (GAG)</span><span class="chip">PIERS</span></div>
+  </header>
 
-    <div class="link-list">
-      <a class="link-item" href="https://wallops-prf.gsfc.nasa.gov/IPMSI/Sites/LEHMAN/index.php" target="_blank" rel="noopener">
-        <span class="link-title">1. Monthly Data</span>
-        <span class="link-url">wallops-prf.gsfc.nasa.gov/IPMSI/Sites/LEHMAN</span>
-      </a>
-      <a class="link-item" href="https://gpm-gv.gsfc.nasa.gov/Gauge/index.php" target="_blank" rel="noopener">
-        <span class="link-title">2. GAG (Yearly) Data</span>
-        <span class="link-url">gpm-gv.gsfc.nasa.gov/Gauge &mdash; search GAG, PIERS Gauges. Lehman College PIERS #029....</span>
-      </a>
-    </div>
-
-    <a class="back-link" href="index.html">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      Back to home
-    </a>
+  <section class="step reveal">
+    <h2>Data sources</h2>
+    <a class="btn" href="https://wallops-prf.gsfc.nasa.gov/IPMSI/Sites/LEHMAN/index.php" target="_blank" rel="noopener"><span>Monthly data<small>wallops-prf.gsfc.nasa.gov/IPMSI/Sites/LEHMAN</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+    <a class="btn" href="https://gpm-gv.gsfc.nasa.gov/Gauge/index.php" target="_blank" rel="noopener"><span>GAG (yearly) data<small>gpm-gv.gsfc.nasa.gov/Gauge</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+    <p style="margin-top:12px">On the GAG site, search for <strong>GAG, PIERS Gauges</strong>. Lehman College PIERS number: <strong>029....</strong></p>
   </section>
+
+  <div class="pager"><a class="btn" href="index.html">Back to home</a></div>
 </div>
+
+<script src="js/main.js"></script>
 </body>
 </html>

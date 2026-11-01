@@ -3,28 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
 <title>New York State Data | Data &amp; Codes Used in Our Research</title>
-<link rel="icon" href="images/Lehman_logo.png">
+<link rel="icon" href="images/glass.png">
 <link rel="stylesheet" href="css/style.css">
+<script>document.documentElement.classList.add('js');</script>
 </head>
-<body>
+<body class="guide">
+
+<div class="topbar">
+  <a class="back" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Home</a>
+  <img src="images/Lehman_logo.png" alt="Lehman College, CUNY">
+  <div class="progress"></div>
+</div>
+
 <div class="wrap">
-  <header class="masthead">
-    <div class="logo-row">
-      <img src="images/Lehman_logo.png" alt="Lehman College, CUNY">
-    </div>
-    <p class="dept">Department of Earth, Environment and Geospatial Science</p>
+
+  <header class="guide-hero reveal">
+    <span class="stub-badge"><img src="images/new-york-state-seal.png" alt="Great Seal of the State of New York"></span>
+    <h1>New York State Data</h1>
+    <p>Public weather-station and GIS data from the State.</p>
+    <div class="chips"><span class="chip">NYS Mesonet</span><span class="chip">NYS GIS</span></div>
   </header>
 
-  <section class="stub-card">
-    <span class="stub-badge"><img src="images/new-york-state-seal.png" alt="Great Seal of the State of New York"></span>
-    <h1>New York State</h1>
-    <p>Details on the New York State GIS and open data portals we used, and how we downloaded and processed them, are coming soon.</p>
-    <a class="back-link" href="index.html">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      Back to home
-    </a>
+  <section class="step reveal">
+    <h2>Data sources</h2>
+    <a class="btn" href="https://www.nysmesonet.org/weather/requestdata" target="_blank" rel="noopener"><span>NYS Mesonet data request<small>nysmesonet.org/weather/requestdata</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+    <a class="btn" href="https://gis.ny.gov/" target="_blank" rel="noopener"><span>NYS GIS Clearinghouse<small>gis.ny.gov</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
   </section>
+
+  <div class="pager"><a class="btn" href="index.html">Back to home</a></div>
 </div>
+
+<script src="js/main.js"></script>
 </body>
 </html>

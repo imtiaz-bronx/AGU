@@ -186,6 +186,78 @@ a { color: inherit; }
   40%, 100% { opacity: 0; transform: scale(1.6); }
 }
 
+/* ---------- Satellite sky (top of home) ---------- */
+
+.sky { margin: -6px auto 6px; max-width: 520px; }
+.sky svg { width: 100%; height: auto; display: block; overflow: visible; }
+.sky .orbit { fill: none; stroke: rgba(255, 255, 255, 0.14); stroke-width: 1; stroke-dasharray: 2 6; stroke-linecap: round; }
+.sky .stars circle { fill: #fff; opacity: 0.15; animation: twinkle 4s ease-in-out infinite; animation-delay: var(--d); }
+.sky .satbody { transform: scale(0.8); }
+.sky .satbody line, .sky .satbody path, .sky .satbody rect {
+  fill: none; stroke: rgba(255, 255, 255, 0.85); stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round;
+}
+.sky .satbody .grid { stroke: rgba(255, 255, 255, 0.35); stroke-width: 0.7; }
+.sky .satbody .core { fill: #0a0a0a; }
+.sky .satbody rect:not(.core) { fill: rgba(255, 255, 255, 0.06); }
+.sky .blink { fill: #fff; animation: twinkle 2.4s ease-in-out infinite; }
+@keyframes twinkle { 0%, 100% { opacity: 0.12; } 50% { opacity: 0.9; } }
+
+/* ---------- Bottom scene ---------- */
+
+.scene { margin: 44px auto 0; max-width: 720px; }
+.scene svg { width: 100%; height: auto; display: block; overflow: visible; }
+
+.scene .ground { stroke: rgba(255, 255, 255, 0.4); stroke-width: 1.2; }
+
+.scene .wind path {
+  fill: none; stroke: rgba(255, 255, 255, 0.3); stroke-width: 1; stroke-linecap: round;
+  stroke-dasharray: 36 240; stroke-dashoffset: 276;
+  animation: windflow 7.5s ease-in-out infinite; animation-delay: var(--d);
+}
+@keyframes windflow { 0% { stroke-dashoffset: 276; opacity: 0; } 15%, 80% { opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+
+.scene .sway {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: sway var(--s) ease-in-out infinite alternate;
+  animation-delay: var(--d);
+}
+@keyframes sway { from { transform: rotate(0.8deg); } to { transform: rotate(5deg); } }
+
+.scene .trunk { fill: none; stroke: rgba(255, 255, 255, 0.85); stroke-width: 2.4; stroke-linecap: round; }
+.scene .canopy { transform-box: fill-box; transform-origin: 50% 100%; animation: flutter 2.6s ease-in-out infinite alternate; }
+@keyframes flutter { from { transform: rotate(-1.2deg) scale(1); } to { transform: rotate(1.4deg) scale(1.02); } }
+.scene .canopy .o { fill: rgba(255, 255, 255, 0.8); }
+.scene .canopy .i { fill: #0a0a0a; }
+.scene .vein { fill: none; stroke: rgba(255, 255, 255, 0.3); stroke-width: 0.8; stroke-linecap: round; }
+
+.scene .leaf {
+  fill: rgba(255, 255, 255, 0.7); opacity: 0;
+  transform-box: fill-box; transform-origin: center;
+  animation: leafdrift 9s ease-in-out infinite; animation-delay: var(--d);
+}
+@keyframes leafdrift {
+  0% { opacity: 0; transform: translate(0, 0) rotate(0); }
+  12% { opacity: 0.7; }
+  60% { opacity: 0.5; }
+  100% { opacity: 0; transform: translate(var(--dx, 150px), var(--y)) rotate(540deg); }
+}
+
+.scene .gbody { fill: #0a0a0a; stroke: rgba(255, 255, 255, 0.85); stroke-width: 1.2; stroke-linejoin: round; }
+.scene .gtick { fill: none; stroke: rgba(255, 255, 255, 0.5); stroke-width: 0.8; }
+.scene .glabel { fill: rgba(255, 255, 255, 0.4); font: 600 4.6px ui-monospace, Menlo, monospace; letter-spacing: 0.18em; }
+.scene .greadout { fill: #fff; font: 700 8px ui-monospace, Menlo, monospace; }
+.scene .drip { stroke: rgba(255, 255, 255, 0.8); stroke-width: 1; stroke-linecap: round; opacity: 0; animation: drip 1.4s linear infinite; animation-delay: var(--d); }
+@keyframes drip { 0% { opacity: 0; transform: translateY(-10px); } 20% { opacity: 1; } 75% { opacity: 1; } 100% { opacity: 0; transform: translateY(8px); } }
+
+.scene .hall .o { fill: #0a0a0a; stroke: rgba(255, 255, 255, 0.75); stroke-width: 1.2; stroke-linejoin: round; }
+.scene .hall .l { fill: none; stroke: rgba(255, 255, 255, 0.75); stroke-width: 1.2; stroke-linejoin: round; stroke-linecap: round; }
+.scene .hall .win { fill: rgba(255, 255, 255, 0.05); stroke: rgba(255, 255, 255, 0.45); stroke-width: 0.8; }
+.scene .hall .glow { animation: glow 6s ease-in-out infinite; animation-delay: var(--d); }
+@keyframes glow { 0%, 100% { fill: rgba(255, 255, 255, 0.1); } 50% { fill: rgba(255, 255, 255, 0.5); } }
+
+.scene + .site-footer { margin-top: 0; border-top: 0; padding-top: 14px; }
+
 /* ---------- Title band ---------- */
 
 .title-band { margin: 18px 0 22px; text-align: center; }
@@ -503,3 +575,67 @@ th { color: var(--faint); font-size: 0.7rem; letter-spacing: 0.06em; text-transf
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
   .js .reveal { opacity: 1; transform: none; }
 }
+
+/* ---------- Students with umbrellas ---------- */
+
+.scene .walker { animation-duration: var(--dur); animation-delay: var(--delay); animation-timing-function: linear; animation-iteration-count: infinite; }
+@keyframes walkR { from { transform: translateX(-26px); } to { transform: translateX(426px); } }
+@keyframes walkL { from { transform: translateX(426px); } to { transform: translateX(-26px); } }
+
+.scene .person { animation: bob calc(var(--step) * 2) ease-in-out infinite; }
+@keyframes bob { 0%, 50%, 100% { transform: translateY(0); } 25%, 75% { transform: translateY(-0.7px); } }
+
+.scene .person path, .scene .person .head, .scene .person .pack {
+  fill: none; stroke: rgba(255, 255, 255, 0.85); stroke-width: 1.15; stroke-linecap: round; stroke-linejoin: round;
+}
+.scene .person .head, .scene .person .coat, .scene .person .pack { fill: #0a0a0a; }
+
+.scene .leg, .scene .arm { transform-box: fill-box; transform-origin: 50% 0%; animation: step var(--step) ease-in-out infinite alternate; }
+.scene .leg.b { animation-direction: alternate-reverse; }
+.scene .arm { animation-direction: alternate-reverse; }
+@keyframes step { from { transform: rotate(-24deg); } to { transform: rotate(24deg); } }
+
+.scene .umb { transform-box: fill-box; transform-origin: 50% 100%; animation: umbsway calc(var(--step) * 4) ease-in-out infinite alternate; }
+@keyframes umbsway { from { transform: rotate(-2.5deg); } to { transform: rotate(2.5deg); } }
+.scene .person .canopy-u.u1 { fill: rgba(255, 255, 255, 0.92); }
+.scene .person .canopy-u.u2 { fill: rgba(255, 255, 255, 0.4); }
+.scene .person .canopy-u.u3 { fill: #0a0a0a; }
+
+@media (prefers-reduced-motion: reduce) { .scene .walker { display: none; } }
+
+/* ---------- Wide (desktop) scene ---------- */
+
+.home { overflow-x: hidden; }
+.scene-wide { display: none; }
+
+.scene-wide .hills { fill: #070707; stroke: rgba(255, 255, 255, 0.12); stroke-width: 1; }
+.scene-wide .soil { fill: none; stroke: rgba(255, 255, 255, 0.1); stroke-width: 1; stroke-dasharray: 2 9; }
+.scene .lamp { fill: none; stroke: rgba(255, 255, 255, 0.7); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.scene .lamphead { fill: #fff; }
+.scene .lampglow { fill: rgba(255, 255, 255, 0.07); animation: lampglow 5s ease-in-out infinite; }
+@keyframes lampglow { 0%, 100% { fill: rgba(255, 255, 255, 0.04); } 50% { fill: rgba(255, 255, 255, 0.12); } }
+.scene .pud { fill: rgba(255, 255, 255, 0.05); stroke: rgba(255, 255, 255, 0.18); stroke-width: 0.8; }
+.scene .ripple {
+  fill: none; stroke: rgba(255, 255, 255, 0.6); stroke-width: 0.7; opacity: 0;
+  transform-box: fill-box; transform-origin: center;
+  animation: puddle 2.2s ease-out infinite; animation-delay: var(--d);
+}
+@keyframes puddle { 0% { opacity: 0.8; transform: scale(0.2); } 100% { opacity: 0; transform: scale(2.6); } }
+.scene .flag { transform-box: fill-box; transform-origin: 0 50%; animation: flag 2.4s ease-in-out infinite alternate; }
+@keyframes flag { from { transform: scaleX(1) skewY(-6deg); } to { transform: scaleX(0.8) skewY(8deg); } }
+@keyframes walkRW { from { transform: translateX(-50px); } to { transform: translateX(1250px); } }
+@keyframes walkLW { from { transform: translateX(1250px); } to { transform: translateX(-50px); } }
+
+@media (min-width: 900px) {
+  .scene-narrow { display: none; }
+  .scene-wide {
+    display: block;
+    max-width: none;
+    width: 100vw;
+    margin: 70px 0 0 calc(50% - 50vw);
+  }
+  .home .wrap { padding-bottom: 18px; }
+  .scene-wide + .site-footer { margin-top: 0; border-top: 0; padding-top: 10px; }
+}
+
+.scene .sign { fill: rgba(255, 255, 255, 0.88); font: 600 5.6px -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; letter-spacing: 0.14em; }
